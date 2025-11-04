@@ -29,6 +29,9 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link text-white" href="/kontak/Asri">Contact</a>
                     </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link text-white" href="/cart/Asri">Cart</a>
+                    </li>
                 </ul>
             </div>
         </div>
