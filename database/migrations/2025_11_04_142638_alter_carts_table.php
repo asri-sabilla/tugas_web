@@ -6,26 +6,31 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->renameColumn('nama','nama_lengkap');
-            $table->text('kategori')->after('cluster');
+            // rename kolom nama
+            $table->renameColumn('nama', 'nama_lengkap');
+
+            // tambah kolom kategori_baru (contoh)
+            $table->text('kategori_baru')->after('nama_lengkap');
+
+            // hapus tanggal_sampai
             $table->dropColumn('tanggal_sampai');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::table('carts', function (Blueprint $table) {
-            $table->renameColumn('nama_lengkap','nama');
-            $table->text('kategori');
+            // balikin nama_lengkap -> nama
+            $table->renameColumn('nama_lengkap', 'nama');
+
+            // hapus kategori_baru
+            $table->dropColumn('kategori_baru');
+
+            // kembalikan tanggal_sampai
+            $table->date('tanggal_sampai');
         });
     }
 };

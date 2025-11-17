@@ -27,10 +27,9 @@
                         <a class="nav-link text-white" href="/team">Team</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="/kontak/Asri">Contact</a>
+                        <a class="nav-link text-white" href="/kontak">Contact</a>
                     </li>
-                    <li class="nav-item mx-2">
-                        <a class="nav-link text-white" href="/cart/Asri">Cart</a>
+                    <li class="nav-item mx-2"><a class="nav-link text-white" href="{{ route('carts.index') }}">Cart</a>
                     </li>
                 </ul>
             </div>

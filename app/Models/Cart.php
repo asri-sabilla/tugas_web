@@ -4,10 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Cart extends Model
 {
-    use HasFactory;
-    protected $fillable =
-    ['id','nama','kategori','jumlah_tersisa','tanggal_sampai'];
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'nama_lengkap',
+        'kategori',
+        'jumlah_tersisa'
+    ];
 }

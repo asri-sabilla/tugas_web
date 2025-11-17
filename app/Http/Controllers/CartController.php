@@ -1,21 +1,32 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Http\Request;
+
 use App\Models\Cart;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-        public function massAssignment(){
-        Cart::create(
-        [
-        'id' => '001',
-        'nama' => 'Brokoli',
-        'kategori' => 'Sayuran',
-        'jumlah_tersisa' => '1500',
-        'tanggal_sampai' =>'2025-08-22',
-        ]
-        );
-        return "Berhasil di proses";
+    public function index()
+    {
+        $carts = Cart::all(); // ambil semua
+        return view('carts.index', compact('carts'));
+    }
+
+    public function create()
+{
+    return view('carts.create');
+}
+
+    public function store(Request $request)
+    {
+        Cart::create($request->all());
+        return redirect()->route('carts.index');
+    }
+
+    public function destroy($id)
+    {
+        Cart::findOrFail($id)->delete();
+        return redirect()->route('carts.index');
     }
 }

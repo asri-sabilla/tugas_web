@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->integer('id')->unique();
             $table->string('nama');
             $table->string('kategori');
             $table->integer('jumlah_tersisa');
             $table->date('tanggal_sampai');
+            $table->softDeletes(); 
             $table->timestamps();
         });
     }
